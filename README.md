@@ -19,12 +19,13 @@ API REST desarrollada en **Spring Boot** para la gestión de personas y sus fact
 - Paginación: Endpoint `/personas/paginated`
 
 **Estructura del Proyecto:**
+
 directorio-api/
-├── .github/workflows/ # Pipeline CI/CD
+
+├── .github/workflows/ # Pipeline CI/CD 
 
 │ └── ci.yml # GitHub Actions - ejecuta tests, build y Docker
 ├── src/
-
 │ ├── main/
 │ │ ├── java/com/directorio/
 │ │ │ ├── DirectorioApiApplication.java # Clase principal Spring Boot
