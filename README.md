@@ -113,8 +113,10 @@ docker run -p 8080:8080 directorio-api
 **3. Ver logs en tiempo real**
 docker logs -f [container_id]
 
-# Endpoints de la API:**
+# Endpoints de la API:
+
 👥 Personas:
+
 @PostMapping	                             → POST /personas	                          (Crear nueva persona	201 Created)
 
 @GetMapping("/{id}")	                     → GET /personas/{id}	                      (Obtener persona por ID	200 OK)
@@ -128,7 +130,9 @@ docker logs -f [container_id]
 @DeleteMapping("/{identificacion}")	       → DELETE /personas/{identificacion}	      (Eliminar persona por identificación)
 
 🧾 Facturas:
+
 Método	Endpoint	Descripción
+
 @PostMapping("/{identificacionPersona}")   → POST /facturas/{identificacionPersona}  (Crear 201 Created)
 
 @GetMapping("/{identificacionPersona}")    → GET /facturas/{identificacionPersona}   (Listar de una persona 200 OK)
