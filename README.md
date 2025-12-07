@@ -25,7 +25,9 @@ directorio-api/
 ├── .github/workflows/ # Pipeline CI/CD 
 
 │ └── ci.yml # GitHub Actions - ejecuta tests, build y Docker
+
 ├── src/
+
 │ ├── main/
 │ │ ├── java/com/directorio/
 │ │ │ ├── DirectorioApiApplication.java # Clase principal Spring Boot
