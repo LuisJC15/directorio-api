@@ -92,7 +92,7 @@ directorio-api/
 
 # Opción 1: Local con Maven
 
-**1. Clonar repositorio**
+**1. Clonar repositorio
 git clone https://github.com/LuisJC15/directorio-api.git
 cd directorio-api
 
@@ -102,7 +102,7 @@ mvn clean spring-boot:run
 **3. Acceder a la API**
 *http://localhost:8080*
 
-# Opción 2: Con Docker**
+# Opción 2: Con Docker
 
 **1. Construir imagen**
 docker build -t directorio-api .
@@ -116,15 +116,21 @@ docker logs -f [container_id]
 # Endpoints de la API:**
 👥 Personas:
 @PostMapping	                             → POST /personas	                          (Crear nueva persona	201 Created)
+
 @GetMapping("/{id}")	                     → GET /personas/{id}	                      (Obtener persona por ID	200 OK)
+
 @GetMapping("/identificacion/{identificacion}")	→  GET /personas/identificacion/{identificacion}	(Buscar persona por identificación	200 OK)
-@GetMapping	                               → GET /personas	Listar todas las personas	200 OK
-@GetMapping("/paginated")	                 → GET /personas/paginated?page=0&size=10   (Listar con paginación	200 OK)
+
+@GetMapping	                               → GET /personas	(                         (Listar todas las personas	200 OK)
+
+@GetMapping("/paginated")	                 → GET /personas/paginated?page=0&size=10  (Listar con paginación	200 OK)
+
 @DeleteMapping("/{identificacion}")	       → DELETE /personas/{identificacion}	      (Eliminar persona por identificación)
 
 🧾 Facturas:
 Método	Endpoint	Descripción
-@PostMapping("/{identificacionPersona}")   → POST /facturas/{identificacionPersona}    (Crear 201 Created)
-@GetMapping("/{identificacionPersona}")    → GET /facturas/{identificacionPersona}     (Listar de una persona 200 OK)
+@PostMapping("/{identificacionPersona}")   → POST /facturas/{identificacionPersona}  (Crear 201 Created)
+
+@GetMapping("/{identificacionPersona}")    → GET /facturas/{identificacionPersona}   (Listar de una persona 200 OK)
 
 Las pruebas fueron realizadas en POSTMAN.
