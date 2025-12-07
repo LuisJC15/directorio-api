@@ -1,10 +1,10 @@
-Directorio API - Sistema de Gestión de Personas y Facturas
+**Directorio API - Sistema de Gestión de Personas y Facturas**
 
 API REST desarrollada en **Spring Boot** para la gestión de personas y sus facturas, como parte de una prueba técnica para GetechnologiesMx.
 
-Características Principales
+**Características Principales**
 
-*Requisitos:
+**Requisitos:**
 - Arquitectura: Spring Boot
 - Base de datos: H2 embebida con consola web accesible
 - Validaciones: Campos obligatorios, identificación única, apellido materno opcional
@@ -13,12 +13,12 @@ Características Principales
 - Códigos HTTP: Respuestas apropiadas (200, 201, 404, 409, 500)
 - Testing: Tests unitarios
 
-*Funcionalidades Plus Implementadas:
+**Funcionalidades Plus Implementadas:**
 - Docker: Contenedor listo para producción
 - CI/CD: Pipeline automático con GitHub Actions
 - Paginación: Endpoint `/personas/paginated`
 
-*Estructura del Proyecto:
+**Estructura del Proyecto:**
 📁 directorio-api/  (RAÍZ DEL PROYECTO)
 │
 ├── 📁 .github/workflows/    → PIPELINE CI/CD
@@ -66,32 +66,32 @@ Características Principales
 ├── 📄 pom.xml                  → CONFIGURACIÓN MAVEN - Dependencias, plugins, build
 └── 📄 README.md                → DOCUMENTACIÓN - Instrucciones, endpoints, cómo usar
  
-*Cómo Ejecutar el Proyecto:
+#*Cómo Ejecutar el Proyecto:
 
-Opción 1: Local con Maven
+#Opción 1: Local con Maven
 
-# 1. Clonar repositorio
+**1. Clonar repositorio**
 git clone https://github.com/LuisJC15/directorio-api.git
 cd directorio-api
 
-# 2. Compilar y ejecutar
+**2. Compilar y ejecutar**
 mvn clean spring-boot:run
 
-# 3. Acceder a la API
-# http://localhost:8080
+**3. Acceder a la API**
+*http://localhost:8080*
 
-Opción 2: Con Docker 
+#**Opción 2: Con Docker**
 
-# 1. Construir imagen
+**1. Construir imagen**
 docker build -t directorio-api .
 
-# 2. Ejecutar contenedor
+**2. Ejecutar contenedor**
 docker run -p 8080:8080 directorio-api
 
-# 3. Ver logs en tiempo real
+**3. Ver logs en tiempo real**
 docker logs -f [container_id]
 
-*Endpoints de la API:
+#**Endpoints de la API:**
 👥 Personas:
 Método	Endpoint	Descripción	Código HTTP
 @PostMapping	                             → POST /personas	                          (Crear nueva persona	201 Created)
