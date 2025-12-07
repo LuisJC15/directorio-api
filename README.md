@@ -19,56 +19,43 @@ API REST desarrollada en **Spring Boot** para la gestión de personas y sus fact
 - Paginación: Endpoint `/personas/paginated`
 
 **Estructura del Proyecto:**
-📁 directorio-api/  (RAÍZ DEL PROYECTO)
-│
-├── 📁 .github/workflows/    → PIPELINE CI/CD
-│   └── 📄 ci.yml            → GitHub Actions - Ejecuta tests, build, Docker automáticamente
-│
-├── 📁 src/                  → CÓDIGO FUENTE
-│   │
-│   ├── 📁 main/             → CÓDIGO PRINCIPAL
-│   │   │
+directorio-api/
+├── 📁 .github/workflows/          # Pipeline CI/CD
+│   └── 📄 ci.yml                  # GitHub Actions - ejecuta tests, build y Docker automáticamente
+├── 📁 src/                        # Código fuente
+│   ├── 📁 main/                   # Código principal de la aplicación
 │   │   ├── 📁 java/com/directorio/
-│   │   │   │
-│   │   │   ├── 📄 DirectorioApiApplication.java  → Clase main
-│   │   │   │
-│   │   │   ├── 📁 controller/                    → CONTROLADORES REST
-│   │   │   │   ├── 📄 DirectorioRestService.java → Endpoints de Personas
-│   │   │   │   └── 📄 FacturaRestService.java    → Endpoints de Facturas
-│   │   │   │
-│   │   │   ├── 📁 exception/                     → MANEJO GLOBAL DE ERRORES
-│   │   │   │   ├── 📄 GlobalExceptionHandler.java → @ControllerAdvice para excepciones
-│   │   │   │   ├── 📄 PersonaNotFoundException.java     → Cuando no encuentra persona
-│   │   │   │   └── 📄 FacturaNotFoundException.java     → Cuando no encuentra factura
-│   │   │   │
-│   │   │   ├── 📁 model/                         → MODELOS/ENTIDADES
-│   │   │   │   ├── 📄 Persona.java               → Entidad Persona (id, nombre, apellidos, identificación)
-│   │   │   │   └── 📄 Factura.java               → Entidad Factura (id, fecha, monto, persona)
-│   │   │   │
-│   │   │   ├── 📁 repository/                    → PERSISTENCIA DE DATOS
-│   │   │   │   ├── 📄 PersonaRepository.java     → JPA Repository para Persona
-│   │   │   │   └── 📄 FacturaRepository.java     → JPA Repository para Factura
-│   │   │   ├── 📁 service/                       → LÓGICA DE NEGOCIO
-│   │   │   │   ├── 📄 DirectorioService.java     → Operaciones con Personas
-│   │   │   │   └── 📄 VentasService.java         → Operaciones con Facturas  
-│   │   │   │
-│   │   └── 📁 resources/                         → CONFIGURACIONES
-│   │       └── 📄 application.properties         → Config Spring, H2 database, logging
-│   │
-│   └── 📁 test/                                  → PRUEBAS
-│       │
+│   │   │   ├── 📄 DirectorioApiApplication.java     # Clase principal que inicia Spring Boot
+│   │   │   ├── 📁 controller/                       # Controladores REST (APIs)
+│   │   │   │   ├── 📄 DirectorioRestService.java    # API de Personas - endpoints 
+│   │   │   │   └── 📄 FacturaRestService.java       # API de Facturas - endpoints 
+│   │   │   ├── 📁 exception/                        # Manejo global de excepciones
+│   │   │   │   ├── 📄 GlobalExceptionHandler.java   # @ControllerAdvice para manejar errores
+│   │   │   │   ├── 📄 PersonaNotFoundException.java # Excepción personalizada (persona no encontrada)
+│   │   │   │   └── 📄 FacturaNotFoundException.java # Excepción personalizada (factura no encontrada)
+│   │   │   ├── 📁 model/                            # Modelos/Entidades JPA
+│   │   │   │   ├── 📄 Persona.java                  # Entidad Persona (id, nombre, apellidos, identificación)
+│   │   │   │   └── 📄 Factura.java                  # Entidad Factura (id, fecha, monto, persona)
+│   │   │   ├── 📁 repository/                       # Repositorios JPA (persistencia)
+│   │   │   │   ├── 📄 PersonaRepository.java        # JPA Repository para operaciones CRUD de Persona
+│   │   │   │   └── 📄 FacturaRepository.java        # JPA Repository para operaciones CRUD de Factura
+│   │   │   └── 📁 service/                          # Capa de servicio (lógica de negocio)
+│   │   │       ├── 📄 DirectorioService.java        # Servicio para operaciones con Personas
+│   │   │       └── 📄 VentasService.java            # Servicio para operaciones con Facturas
+│   │   └── 📁 resources/                            # Configuraciones y recursos
+│   │       └── 📄 application.properties            # Configuración Spring, H2 Database, logging
+│   └── 📁 test/                                     # Pruebas unitarias y de integración
 │       └── 📁 java/com/directorio/
-│           ├── 📄 DirectorioApiApplicationTests.java → Test de contexto Spring
-│           ├── 📄 DirectorioTest.java                → Tests de Personas
-│           └── 📄 VentasTest.java                    → Tests de Facturas
-│
-├── 📄 Dockerfile               → CONFIGURACIÓN DOCKER - Cómo construir contenedor
-├── 📄 pom.xml                  → CONFIGURACIÓN MAVEN - Dependencias, plugins, build
-└── 📄 README.md                → DOCUMENTACIÓN - Instrucciones, endpoints, cómo usar
- 
-#*Cómo Ejecutar el Proyecto:
+│           ├── 📄 DirectorioApiApplicationTests.java # Test de contexto de Spring Boot
+│           ├── 📄 DirectorioTest.java                # Tests para el módulo de Personas
+│           └── 📄 VentasTest.java                    # Tests para el módulo de Facturas/Ventas
+├── 📄 Dockerfile                # Configuración Docker - define cómo construir el contenedor
+├── 📄 pom.xml                   # Configuración Maven - dependencias, plugins y build
+└── 📄 README.md                 # Documentación del proyecto - instrucciones, APIs, etc.
 
-#Opción 1: Local con Maven
+# Cómo Ejecutar el Proyecto:
+
+# Opción 1: Local con Maven
 
 **1. Clonar repositorio**
 git clone https://github.com/LuisJC15/directorio-api.git
@@ -80,7 +67,7 @@ mvn clean spring-boot:run
 **3. Acceder a la API**
 *http://localhost:8080*
 
-#**Opción 2: Con Docker**
+# Opción 2: Con Docker**
 
 **1. Construir imagen**
 docker build -t directorio-api .
@@ -91,7 +78,7 @@ docker run -p 8080:8080 directorio-api
 **3. Ver logs en tiempo real**
 docker logs -f [container_id]
 
-#**Endpoints de la API:**
+# Endpoints de la API:**
 👥 Personas:
 Método	Endpoint	Descripción	Código HTTP
 @PostMapping	                             → POST /personas	                          (Crear nueva persona	201 Created)
