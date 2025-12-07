@@ -117,6 +117,8 @@ docker logs -f [container_id]
 
 👥 Personas:
 
+Método	Endpoint	Descripción 
+
 @PostMapping	                             → POST /personas	                          (Crear nueva persona	201 Created)
 
 @GetMapping("/{id}")	                     → GET /personas/{id}	                      (Obtener persona por ID	200 OK)
@@ -131,7 +133,7 @@ docker logs -f [container_id]
 
 🧾 Facturas:
 
-Método	Endpoint	Descripción
+Método	Endpoint	Descripción 
 
 @PostMapping("/{identificacionPersona}")   → POST /facturas/{identificacionPersona}  (Crear 201 Created)
 
