@@ -1,4 +1,4 @@
-**Directorio API - Sistema de Gestión de Personas y Facturas**
+# Directorio API - Sistema de Gestión de Personas y Facturas
 
 API REST desarrollada en **Spring Boot** para la gestión de personas y sus facturas, como parte de una prueba técnica para GetechnologiesMx.
 
@@ -18,7 +18,7 @@ API REST desarrollada en **Spring Boot** para la gestión de personas y sus fact
 - CI/CD: Pipeline automático con GitHub Actions
 - Paginación: Endpoint `/personas/paginated`
 
-**Estructura del Proyecto:**
+# Estructura del Proyecto:
 
 directorio-api/
 
