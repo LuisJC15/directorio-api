@@ -24,36 +24,66 @@ directorio-api/
 
 ├── .github/workflows/ # Pipeline CI/CD 
 
-│ └── ci.yml # GitHub Actions - ejecuta tests, build y Docker
+└── ci.yml # GitHub Actions - ejecuta tests, build y Docker
+
 ├── src/
-│ ├── main/
+
+ ├── main/
+ 
 │ │ ├── java/com/directorio/
+
 │ │ │ ├── DirectorioApiApplication.java # Clase principal Spring Boot
+
 │ │ │ ├── controller/ # Controladores REST
+
 │ │ │ │ ├── DirectorioRestService.java # API de Personas
+
 │ │ │ │ └── FacturaRestService.java # API de Facturas
+
 │ │ │ ├── exception/ # Manejo de excepciones
+
 │ │ │ │ ├── GlobalExceptionHandler.java # @ControllerAdvice
+
 │ │ │ │ ├── PersonaNotFoundException.java # Excepción personalizada
+
 │ │ │ │ └── FacturaNotFoundException.java # Excepción personalizada
+
 │ │ │ ├── model/ # Entidades JPA
+
 │ │ │ │ ├── Persona.java # Entidad Persona
+
 │ │ │ │ └── Factura.java # Entidad Factura
+
 │ │ │ ├── repository/ # Repositorios JPA
+
 │ │ │ │ ├── PersonaRepository.java # CRUD Persona
+
 │ │ │ │ └── FacturaRepository.java # CRUD Factura
+
 │ │ │ └── service/ # Lógica de negocio
+
 │ │ │ ├── DirectorioService.java # Servicio Personas
+
 │ │ │ └── VentasService.java # Servicio Facturas
+
 │ │ └── resources/
+
 │ │ └── application.properties # Configuración Spring
+
 │ └── test/ # Pruebas
+
 │ └── java/com/directorio/
+
 │ ├── DirectorioApiApplicationTests.java # Test de contexto
+
 │ ├── DirectorioTest.java # Tests Personas
+
 │ └── VentasTest.java # Tests Facturas
+
 ├── Dockerfile # Configuración Docker
+
 ├── pom.xml # Configuración Maven
+
 └── README.md # Documentación
 
 
@@ -85,7 +115,6 @@ docker logs -f [container_id]
 
 # Endpoints de la API:**
 👥 Personas:
-Método	Endpoint	Descripción	Código HTTP
 @PostMapping	                             → POST /personas	                          (Crear nueva persona	201 Created)
 @GetMapping("/{id}")	                     → GET /personas/{id}	                      (Obtener persona por ID	200 OK)
 @GetMapping("/identificacion/{identificacion}")	→  GET /personas/identificacion/{identificacion}	(Buscar persona por identificación	200 OK)
