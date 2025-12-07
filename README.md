@@ -20,38 +20,42 @@ API REST desarrollada en **Spring Boot** para la gestión de personas y sus fact
 
 **Estructura del Proyecto:**
 directorio-api/
-├── 📁 .github/workflows/          # Pipeline CI/CD
-│   └── 📄 ci.yml                  # GitHub Actions - ejecuta tests, build y Docker automáticamente
-├── 📁 src/                        # Código fuente
-│   ├── 📁 main/                   # Código principal de la aplicación
-│   │   ├── 📁 java/com/directorio/
-│   │   │   ├── 📄 DirectorioApiApplication.java     # Clase principal que inicia Spring Boot
-│   │   │   ├── 📁 controller/                       # Controladores REST (APIs)
-│   │   │   │   ├── 📄 DirectorioRestService.java    # API de Personas - endpoints 
-│   │   │   │   └── 📄 FacturaRestService.java       # API de Facturas - endpoints 
-│   │   │   ├── 📁 exception/                        # Manejo global de excepciones
-│   │   │   │   ├── 📄 GlobalExceptionHandler.java   # @ControllerAdvice para manejar errores
-│   │   │   │   ├── 📄 PersonaNotFoundException.java # Excepción personalizada (persona no encontrada)
-│   │   │   │   └── 📄 FacturaNotFoundException.java # Excepción personalizada (factura no encontrada)
-│   │   │   ├── 📁 model/                            # Modelos/Entidades JPA
-│   │   │   │   ├── 📄 Persona.java                  # Entidad Persona (id, nombre, apellidos, identificación)
-│   │   │   │   └── 📄 Factura.java                  # Entidad Factura (id, fecha, monto, persona)
-│   │   │   ├── 📁 repository/                       # Repositorios JPA (persistencia)
-│   │   │   │   ├── 📄 PersonaRepository.java        # JPA Repository para operaciones CRUD de Persona
-│   │   │   │   └── 📄 FacturaRepository.java        # JPA Repository para operaciones CRUD de Factura
-│   │   │   └── 📁 service/                          # Capa de servicio (lógica de negocio)
-│   │   │       ├── 📄 DirectorioService.java        # Servicio para operaciones con Personas
-│   │   │       └── 📄 VentasService.java            # Servicio para operaciones con Facturas
-│   │   └── 📁 resources/                            # Configuraciones y recursos
-│   │       └── 📄 application.properties            # Configuración Spring, H2 Database, logging
-│   └── 📁 test/                                     # Pruebas unitarias y de integración
-│       └── 📁 java/com/directorio/
-│           ├── 📄 DirectorioApiApplicationTests.java # Test de contexto de Spring Boot
-│           ├── 📄 DirectorioTest.java                # Tests para el módulo de Personas
-│           └── 📄 VentasTest.java                    # Tests para el módulo de Facturas/Ventas
-├── 📄 Dockerfile                # Configuración Docker - define cómo construir el contenedor
-├── 📄 pom.xml                   # Configuración Maven - dependencias, plugins y build
-└── 📄 README.md                 # Documentación del proyecto - instrucciones, APIs, etc.
+├── .github/workflows/ # Pipeline CI/CD
+
+│ └── ci.yml # GitHub Actions - ejecuta tests, build y Docker
+├── src/
+
+│ ├── main/
+│ │ ├── java/com/directorio/
+│ │ │ ├── DirectorioApiApplication.java # Clase principal Spring Boot
+│ │ │ ├── controller/ # Controladores REST
+│ │ │ │ ├── DirectorioRestService.java # API de Personas
+│ │ │ │ └── FacturaRestService.java # API de Facturas
+│ │ │ ├── exception/ # Manejo de excepciones
+│ │ │ │ ├── GlobalExceptionHandler.java # @ControllerAdvice
+│ │ │ │ ├── PersonaNotFoundException.java # Excepción personalizada
+│ │ │ │ └── FacturaNotFoundException.java # Excepción personalizada
+│ │ │ ├── model/ # Entidades JPA
+│ │ │ │ ├── Persona.java # Entidad Persona
+│ │ │ │ └── Factura.java # Entidad Factura
+│ │ │ ├── repository/ # Repositorios JPA
+│ │ │ │ ├── PersonaRepository.java # CRUD Persona
+│ │ │ │ └── FacturaRepository.java # CRUD Factura
+│ │ │ └── service/ # Lógica de negocio
+│ │ │ ├── DirectorioService.java # Servicio Personas
+│ │ │ └── VentasService.java # Servicio Facturas
+│ │ └── resources/
+│ │ └── application.properties # Configuración Spring
+│ └── test/ # Pruebas
+│ └── java/com/directorio/
+│ ├── DirectorioApiApplicationTests.java # Test de contexto
+│ ├── DirectorioTest.java # Tests Personas
+│ └── VentasTest.java # Tests Facturas
+├── Dockerfile # Configuración Docker
+├── pom.xml # Configuración Maven
+└── README.md # Documentación
+
+
 
 # Cómo Ejecutar el Proyecto:
 
