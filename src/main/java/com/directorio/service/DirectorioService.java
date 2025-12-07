@@ -23,17 +23,32 @@ public class DirectorioService {
     private final PersonaRepository personaRepository;
 
     // Crear o guardar persona
-    public Persona storePersona(Persona persona) {
-        log.info("Guardando persona con identificacion {}", persona.getIdentificacion());
-        return personaRepository.save(persona);
+
+public Persona storePersona(Persona persona) {
+    log.info("Guardando persona con identificacion {}", persona.getIdentificacion());
+    
+    String identificacion = persona.getIdentificacion();
+    
+    // Buscar si ya existe
+    boolean existe = personaRepository.findByIdentificacion(identificacion).isPresent();
+    
+    if (existe) {
+        log.error("ERROR: La identificación ya existe: {}", identificacion);
     }
+    
+    // Si no existe, guardar normalmente
+    return personaRepository.save(persona);
+}
 
     // Buscar persona por ID
     public Persona findPersona(Long id) {
         log.info("Buscando persona con id {}", id);
 
         return personaRepository.findById(id)
-                .orElseThrow(() -> new PersonaNotFoundException("Persona no encontrada con id " + id));
+                .orElseThrow(() -> {
+                log.error("Persona no encontrada con ID: {}", id);
+                return new PersonaNotFoundException("Persona no encontrada con ID " + id);
+            });
     }
 
     // Buscar persona por identificacion
@@ -41,8 +56,10 @@ public class DirectorioService {
         log.info("Buscando persona con identificacion {}", identificacion);
 
         return personaRepository.findByIdentificacion(identificacion)
-                .orElseThrow(() -> new PersonaNotFoundException("Persona no encontrada con identificacion " + identificacion));
-    }
+                .orElseThrow(() -> {
+                log.error("Persona no encontrada con identificacion: {}", identificacion);
+                return new PersonaNotFoundException("Persona con identificacion " + identificacion + " no existe");
+            });}
 
     // Listar todas las personas
     public List<Persona> findAll() {

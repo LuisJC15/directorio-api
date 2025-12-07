@@ -32,18 +32,3 @@ jobs:
       run: |
         docker build -t directorio-api .
 
-    # --- OPCIONAL ---
-    # Si quieres subir la imagen a GHCR (GitHub Container Registry)
-    # descomenta esta parte y funciona de inmediato.
-    #
-    # - name: Login a GitHub Container Registry
-    #   uses: docker/login-action@v2
-    #   with:
-    #     registry: ghcr.io
-    #     username: ${{ github.actor }}
-    #     password: ${{ secrets.GITHUB_TOKEN }}
-    #
-    # - name: Publicar imagen
-    #   run: |
-    #     docker tag directorio-api ghcr.io/${{ github.repository_owner }}/directorio-api:latest
-    #     docker push ghcr.io/${{ github.repository_owner }}/directorio-api:latest

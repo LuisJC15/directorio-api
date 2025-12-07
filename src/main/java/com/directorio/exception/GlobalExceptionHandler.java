@@ -37,7 +37,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
     
-    // Construcción de objeto de respuesta consistente
     private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String message) {
 
         Map<String, Object> body = new HashMap<>();
